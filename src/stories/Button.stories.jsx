@@ -40,14 +40,14 @@ const TestData = {
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = () => (
+const MSWTemplate = () => (
   <ApolloProvider client={mockedClient}>
     <Button />
   </ApolloProvider>
 )
 
-export const MockedSuccess = Template.bind({});
-MockedSuccess.parameters = {
+export const ContentfulPreview = MSWTemplate.bind({});
+ContentfulPreview.parameters = {
   msw: [
     graphql.query('buttonEntryQuery', (req, res, ctx) => {
       return res(
